@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>농기계</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #5ECE54; /* Your website's primary color */
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+            gap: 20px; /* Reduced space between products */
+            margin: 20px;
+            padding: 0 10px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px; /* Reduced padding */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 250px; /* Reduced height for compact boxes */
+        }
+        .product:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product-name {
+            font-size: 14px; /* Smaller font size for product name */
+            font-weight: bold;
+            margin: 8px 0; /* Reduced margin */
+        }
+        .product-price {
+            font-size: 14px; /* Smaller font size for price */
+            color: #e74c3c;
+            margin: 8px 0; /* Reduced margin */
+        }
+        .buy-button {
+            background-color: #5ECE54;
+            color: white;
+            padding: 8px 18px; /* Smaller button size */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 12px; /* Smaller font size for button */
+        }
+        .buy-button:hover {
+            background-color: #4CAF50;
+        }
+
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 products per row on medium screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-container {
+                grid-template-columns: 1fr; /* 1 product per row on small screens */
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>농기계</h1>
+        <p>품질 보증 100% 믿고 구매 가능합니다.</p>
+    </header>
+    
+    <!-- 상품 목록 -->
+    <div class="product-container">
+        <!-- 상품 1: 트랙터 -->
+        <div class="product">
+            <img src="C:\Users\psk32\Downloads\TC.webp" alt="트랙터">
+            <p class="product-name">트랙터</p>
+            <p class="product-price">₩15,000,000</p>
+            <!-- '자세히 보기' 버튼을 클릭하면 product-details.html로 이동 -->
+            <a href="product-details.html" class="buy-button">자세히 보기</a>
+        </div>
+
+    </div>
+</body>
+</html>

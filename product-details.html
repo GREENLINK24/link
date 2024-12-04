@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랙터 상세 정보</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5ECE54;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .product-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product-info div {
+            flex: 1;
+        }
+        .product-info p {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .product-price {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .buy-button {
+            background-color: #5ECE54;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .buy-button:hover {
+            background-color: #4CAF50;
+        }
+        .back-button {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ddd;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>트랙터 상세 정보</h1>
+    </header>
+
+    <div class="container">
+        <div class="product-info">
+            <div>
+                <img src="C:\Users\psk32\Downloads\TC.webp" alt="트랙터" class="product-image">
+            </div>
+            <div>
+                <p class="product-name">트랙터</p>
+                <p class="product-price">₩15,000,000</p>
+                <p><strong>모델명:</strong> ####</p>
+                <p><strong>규격:</strong> 100마력, 4륜구동</p>
+                <p><strong>기본 장착 옵션:</strong> GPS 내비게이션, 자동 기어 변속 시스템</p>
+                <p><strong>전화번호:</strong> 010-1234-5678</p>
+                <p><strong>연식:</strong> 2023년</p>
+                <p><strong>제조사:</strong> ABC 농기계</p>
+                <p><strong>지역:</strong> 경기도 고양시</p>
+                <p><strong>배송비:</strong> 무료 배송</p>
+                <p><strong>배송일:</strong> 주문 후 5일 이내</p>
+            </div>
+        </div>
+
+        <div>
+            <a href="index.html" class="back-button">뒤로 가기</a>
+            <a href="#" class="buy-button">구매하기</a>
+        </div>
+    </div>
+</body>
+</html>

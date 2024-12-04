@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시설원예 등록</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // 카테고리 선택에 따라 폼 표시
+        function showDetails() {
+            var selectedCategory = document.getElementById("category").value;
+            var machineDetails = document.getElementById("machine-details");
+            var facilityDetails = document.getElementById("facility-details");
+
+            machineDetails.style.display = "none";
+            facilityDetails.style.display = "none";
+
+            if (selectedCategory === "농기계") {
+                machineDetails.style.display = "block";
+            } else if (selectedCategory === "시설원예") {
+                facilityDetails.style.display = "block";
+            }
+        }
+
+        // 각 질문을 순차적으로 보여주는 기능
+        var currentStepMachine = 0;
+        var currentStepFacility = 0;
+        var stepsMachine, stepsFacility;
+
+        // 농기계 '다음' 버튼
+        function nextStepMachine(event) {
+            if (currentStepMachine < stepsMachine.length - 1) {
+                stepsMachine[currentStepMachine].style.display = "none";
+                currentStepMachine++;
+                stepsMachine[currentStepMachine].style.display = "block";
+            } else {
+                event.preventDefault();  // 폼 제출 방지
+                showCompletionMessage();
+            }
+        }
+
+        // 시설원예 '다음' 버튼
+        function nextStepFacility(event) {
+            if (currentStepFacility < stepsFacility.length - 1) {
+                stepsFacility[currentStepFacility].style.display = "none";
+                currentStepFacility++;
+                stepsFacility[currentStepFacility].style.display = "block";
+            } else {
+                event.preventDefault();  // 폼 제출 방지
+                showCompletionMessage();
+            }
+        }
+
+        // 이전 단계로 돌아가기
+        function prevStepMachine() {
+            if (currentStepMachine > 0) {
+                stepsMachine[currentStepMachine].style.display = "none";
+                currentStepMachine--;
+                stepsMachine[currentStepMachine].style.display = "block";
+            }
+        }
+
+        function prevStepFacility() {
+            if (currentStepFacility > 0) {
+                stepsFacility[currentStepFacility].style.display = "none";
+                currentStepFacility--;
+                stepsFacility[currentStepFacility].style.display = "block";
+            }
+        }
+
+        window.onload = function() {
+            // 농기계와 시설원예의 steps 배열 초기화
+            stepsMachine = document.querySelectorAll("#machine-details .step");
+            stepsFacility = document.querySelectorAll("#facility-details .step");
+
+            // 초기 단계 표시
+            stepsMachine[currentStepMachine].style.display = "block";
+            stepsFacility[currentStepFacility].style.display = "block";
+        }
+
+        // 등록 완료 메시지 표시
+        function showCompletionMessage() {
+            var registerSection = document.getElementById("register-section");
+            registerSection.innerHTML = "<h3>등록이 완료되었습니다!</h3><p>품질보증 후 최종 등록이 완료됩니다.</p>";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="search-container">
+                <input type="text" placeholder="검색하기..." id="search">
+                <button id="search-btn">🔍</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="matching.html">AI 매칭 서비스</a></li>
+                    <li><a href="register-sell.html">등록 및 판매</a></li>
+                    <li><a href="beep-talk.html">삐삐톡</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="register-section">
+            <h2>등록</h2>
+            <p>등록할 농기계 또는 시설원예 정보를 입력하시오:</p>
+
+            <!-- 카테고리 선택 -->
+            <label for="category">카테고리 선택:</label>
+            <select id="category" name="category" onchange="showDetails()">
+                <option value="">선택</option>
+                <option value="농기계">농기계</option>
+                <option value="시설원예">시설원예</option>
+            </select>
+
+            <!-- 농기계 등록 폼 -->
+            <div id="machine-details" style="display: none;">
+                <h3>농기계 등록</h3>
+                <form action="submit-register" method="post">
+                    <div class="step">
+                        <input type="text" name="machine_name" placeholder="제품명" required>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="machine_manufacturer" placeholder="모델명" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="machine_model" placeholder="제품 가격" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="machine_condition" placeholder="규격" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="machine_price" placeholder="기본장착 옵션" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="machine_year" placeholder="전화번호" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="machine_manufacturer" placeholder="년식" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="machine_manufacturer" placeholder="희망 판매 방법" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="machine_manufacturer" placeholder="희망 거래 지역" required>
+                        <button type="button" onclick="prevStepMachine()">이전</button>
+                        <button type="button" onclick="nextStepMachine(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <label for="upload">사진 업로드:</label>
+                        <input type="file" name="image" id="upload" required>
+                        <div class="form-buttons">
+                            <button type="button" onclick="prevStepMachine()">이전</button>
+                            <button type="button" onclick="showCompletionMessage()">등록 완료</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 시설원예 등록 폼 -->
+            <div id="facility-details" style="display: none;">
+                <h3>시설원예 등록</h3>
+                <form action="submit-register" method="post">
+                    <div class="step">
+                        <input type="text" name="facility_name" placeholder="제품명" required>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="text" name="facility_location" placeholder="모델명 / 제조사" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="size" placeholder="제품 가격" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="적용 작물" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="주요 기능" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="센서 구성" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="유지비" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="AS 보증 기간" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="연동 앱" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="지역" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <input type="number" name="price" placeholder="전화번호" required>
+                        <button type="button" onclick="prevStepFacility()">이전</button>
+                        <button type="button" onclick="nextStepFacility(event)">다음</button>
+                    </div>
+                    <div class="step" style="display: none;">
+                        <label for="facility-image">사진 업로드:</label>
+                        <input type="file" name="facility_image" id="facility-image" required>
+                        <div class="form-buttons">
+                            <button type="button" onclick="prevStepFacility()">이전</button>
+                            <button type="button" onclick="showCompletionMessage()">등록 완료</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

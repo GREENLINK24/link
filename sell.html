@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>판매</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 버튼을 가로로 나열하고, 가운데 정렬하기 위한 스타일 */
+        #sell-list {
+            display: flex;
+            justify-content: center; /* 버튼들을 가로로 가운데 정렬 */
+            align-items: center; /* 수직으로도 가운데 정렬 */
+            list-style: none; /* 기본 리스트 스타일 제거 */
+            padding: 0;
+        }
+        #sell-list li {
+            display: inline-block;
+            margin: 0 10px; /* 버튼들 간의 간격을 10px로 설정 */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="search-container">
+                <input type="text" placeholder="검색하기..." id="search">
+                <button id="search-btn">🔍</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="matching.html">AI 매칭 서비스</a></li>
+                    <li><a href="register-sell.html">등록 및 판매</a></li>
+                    <li><a href="beep-talk.html">Beep Talk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="sell-section">
+            <h2>농기계 판매</h2>
+            <p></p>
+            <ul id="sell-list">
+                <li><button onclick="openNewPage('농기계')">농기계</button></li>
+                <li><button onclick="openNewPage('시설원예')">시설원예</button></li>
+            </ul>
+            <a href="matching.html">
+                <button>AI 매칭 서비스 받으러 가기</button>
+            </a>
+        </section>        
+    </main>
+
+    <script>
+        function openNewPage(category) {
+            // 카테고리에 맞는 새 페이지 열기
+            if (category === '농기계') {
+                window.open('new-page-farm-machinery.html', '_blank');  // 농기계 관련 새 페이지
+            } else if (category === '시설원예') {
+                window.open('new-page-facility-horticulture.html', '_blank');  // 시설원예 관련 새 페이지
+            }
+        }
+    </script>
+</body>
+</html>
+

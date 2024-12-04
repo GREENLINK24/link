@@ -1,0 +1,204 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 상단바 전체 컨테이너 */
+.header-container {
+    display: flex;
+    justify-content: space-between; /* 양옆으로 배치 */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #5ECE54;
+}
+
+/* 검색창 */
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;  /* 검색창이 왼쪽 끝으로 최대화되도록 설정 */
+}
+
+.search-container input {
+    padding: 14px 20px; /* 네이버처럼 여유 있는 패딩 */
+    font-size: 20px; /* 글자 크기 크게 */
+    border-radius: 30px; /* 둥근 모서리 */
+    border: 1px solid #ddd;
+    outline: none;
+    width: 70%;  /* 검색창 넓게 설정 */
+    margin-right: 10px;
+}
+
+.search-container button {
+    padding: 14px 20px;
+    background-color: #4dbf47;
+    border: 1px solid #4dbf47;
+    border-radius: 30px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+.search-container button:hover {
+    background-color: #5ECE54;
+}
+
+/* 네비게이션 메뉴 */
+header nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+header nav ul li {
+    position: relative;
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #fff700;
+}
+
+/* 드롭다운 메뉴 */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #5ECE54;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content li {
+    padding: 10px;
+    text-align: center;
+}
+
+.dropdown-content li a {
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content li a:hover {
+    background-color: #4dbf47;
+}
+
+/* 섹션 스타일 */
+section {
+    padding: 40px 20px;
+    margin: 20px 0;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+/* 질문 제목 */
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 설명 텍스트 */
+p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* 버튼 기본 스타일 */
+button {
+    background-color: #5ECE54;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #4dbf47;
+}
+
+/* 질문 컨테이너 스타일 */
+#question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.question {
+    display: none;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.question button {
+    margin: 10px;
+    width: 250px;
+}
+
+/* 추천 농기계 결과 스타일 */
+.result-container {
+    margin-top: 20px;
+}
+
+#recommended-machines h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#machine-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    font-size: 18px;
+    color: #444;
+}
+
+#machine-list li {
+    padding: 5px 0;
+}
+
+/* 질문 끝나고 추천 결과로 넘어갈 때 */
+#recommended-machines {
+    display: none;
+}
+
+/* 질문들이 보여지는 컨테이너 */
+#question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
